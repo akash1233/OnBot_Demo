@@ -1,0 +1,39 @@
+{
+  "bottype": "jenkinsbot",
+  "start_build": {
+    "key": 111,
+    "workflowflag": false,
+    "admin": "",
+    "adminid": ""
+  },
+  "delete_job": {
+    "key": 222,
+    "workflowflag": false,
+    "admin": "",
+    "adminid": ""
+  },
+  "create_job": {
+    "key": 333,
+    "workflowflag": false,
+    "admin": "",
+    "adminid": ""
+  },
+  "install_plugin": {
+    "key": 444,
+    "workflowflag": false,
+    "admin": "",
+    "adminid": ""
+  },
+  "restart_jenkins": {
+    "key": 555,
+    "workflowflag": false,
+    "admin": "",
+    "adminid": ""
+  },
+  "build": {
+    "key": 666,
+    "workflowflag": true,
+    "admin": "onbot-admin-group",
+    "adminid": "GGJ7VUBB6"
+  }
+}

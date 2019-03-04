@@ -14,23 +14,14 @@
 #   the License.
 #-------------------------------------------------------------------------------
 
-#Description:
-# ensures hubot says "Sorry, I didn't get you" if user's command is not handled by hubot
-#
-#Configuration:
-# None
-#
-#COMMANDS:
-# none
-#
-#Dependencies:
-# "elasticSearch": "^0.9.2"
+# Fallback Reply For Commands
 
+#Load dependency to send logs to elastic search
 index = require('./index')
 
 module.exports = (robot) ->
   robot.hear /.+/, (msg) ->
-    commands = ["create job","upload","give","restart jenkins","install","reload","jenkins list","jenkins build","start","delete job","install","restart jenkins","jenkins describe","help","setInstance","getAllInstance"]
+    commands = ["list sonar projects","list sonar users","delete sonar user","create sonar user","delete sonar project","grant sonar","revoke sonar","help","create sonar project","reload"]
     message = msg.message
     message.text = message.text or ''
     if message.text.match RegExp '^@?' + robot.name + ' +.*$', 'i'

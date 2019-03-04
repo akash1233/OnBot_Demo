@@ -19,8 +19,8 @@ var bodyParser = require("body-parser");
 var request = require('request')
 var mongojs = require('mongojs');
 //MongoDB connection
-var db = mongojs(process.env.MONGO_IP+'/'+process.env.MONGO_DB,[process.env.MONGO_COLL]);
 require('dotenv').config()
+var db = mongojs(process.env.MONGO_IP+'/'+process.env.MONGO_DB,[process.env.MONGO_COLL]);
 var app = express();
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 app.use(bodyParser.json());
@@ -31,7 +31,6 @@ app.post('/approval', (req, res) =>{
                 new:false},function(err,docs){
                         //console.log(docs);
                 if(docs)        {
-
                 var botpayload=docs.payload
                 botpayload["action"]=req.body.context.action;
                 botpayload["approver"]=req.body.user_id;

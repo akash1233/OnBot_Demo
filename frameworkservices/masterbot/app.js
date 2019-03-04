@@ -21,9 +21,9 @@ var fs = require('fs');
 var http = require('http');
 var https = require('https');
 var config = require('./app/config/config.json');
-var privateKey  = fs.readFileSync(config.PrivateKey_path);
-var certificate = fs.readFileSync(config.Certificate_Path);
-var credentials = {key: privateKey, cert: certificate};
+// var privateKey  = fs.readFileSync(config.PrivateKey_path);
+// var certificate = fs.readFileSync(config.Certificate_Path);
+// var credentials = {key: privateKey, cert: certificate};
 app.use(bodyparser.json());
 app.use(express.static(__dirname + "/public"));
 require('./app/routes')(app);//For MongoDB
@@ -33,7 +33,7 @@ require('./app/deploybot')(app); //Deploy bot to remote machine
 require('./app/elasticApi')(app);//for elasticsearch api
 
 
-var httpsServer = https.createServer(credentials, app);
-httpsServer.listen(config.https_port,function(){console.log("Listening to https port: "+config.https_port)});
-//httpServer.listen(config.http_port,function(){console.log("Listening to http port:"+config.http_port)});
+// var httpsServer = https.createServer(credentials, app);
+// httpsServer.listen(config.https_port,function(){console.log("Listening to https port: "+config.https_port)});
+httpServer.listen(config.http_port,function(){console.log("Listening to http port:"+config.http_port)});
 
